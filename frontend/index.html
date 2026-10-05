@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pemerintah Desa Pawenang | Website Resmi Desa Pawenang</title>
+    <meta name="description" content="Website resmi Pemerintah Desa Pawenang sebagai media informasi, pelayanan masyarakat, transparansi anggaran, dan pengembangan potensi desa.">
+    <meta name="robots" content="index, follow">
+    <!-- Mengambil favicon dari folder assets/images/favicon.png -->
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            /* Palette Profesional Pemerintahan: Deep Emerald & Gold Accents */
+            --bg: #f8fafc;
+            --surface: #ffffff;
+            --surface-alt: #f0fdf4;  /* Nuansa hijau mint sangat lembut */
+            --text: #0f172a;                /* Hitam gelap tegas untuk keterbacaan maksimal */
+            --fg: #334155;                  /* Abu-abu gelap untuk teks sekunder */
+            --primary: #065f46;             /* Hijau Zamrud Tua (Wibawa & Jelas) */
+            --primary-hover: #047857;       
+            --accent: #d97706;              /* Kuning Emas Elegan */
+            --border: #cbd5e1;
+            --border-light: #e2e8f0;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.06), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            --radius-sm: 8px;
+            --radius-md: 14px;
+            --radius-lg: 20px;
+            --nav-height: 76px;
+            --font-main: 'Plus Jakarta Sans', sans-serif;
+            --font-heading: 'Playfair Display', serif;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            color: var(--text);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin-inline: auto;
+            padding-inline: 1.5rem;
+        }
+
+        /* --- HEADER & NAVIGASI (HIJAU ZAMRUD + AKSEN EMAS) --- */
+        .site-header {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            height: var(--nav-height);
+            background-color: var(--primary);
+            border-bottom: 2px solid var(--accent);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 1200px;
+            margin-inline: auto;
+            padding-inline: 1.5rem;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .nav-logo-img {
+            width: 44px;
+            height: 44px;
+            object-fit: contain;
+            border-radius: 50%;
+            background: #ffffff;
+            padding: 2px;
+        }
+
+        .nav-brand-text h1 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            line-height: 1.2;
+            color: #ffffff;
+        }
+
+        .nav-brand-text span {
+            font-size: 0.75rem;
+            color: #ffffff;
+            font-weight: 500;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-action {
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-login {
+            background-color: rgba(255, 255, 255, 0.12);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .btn-login:hover { background-color: rgba(255, 255, 255, 0.25); }
+
+        .btn-register {
+            background-color: transparent;
+            color: #ffffff;
+            border: 1px solid #ffffff;
+        }
+        .btn-register:hover { background-color: rgba(255, 255, 255, 0.15); }
+
+        .btn-service {
+            background-color: var(--accent);
+            color: #ffffff;
+            border: 1px solid var(--accent);
+            font-weight: 700;
+        }
+        .btn-service:hover { background-color: #b45309; }
+
+        /* --- HERO BANNER --- */
+        .hero-banner {
+            position: relative;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            padding-top: var(--nav-height);
+            background-color: #064e3b;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            opacity: 0.75;
+            z-index: 0;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(3, 43, 31, 0.35) 0%, rgba(6, 95, 70, 0.25) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: #ffffff;
+            max-width: 750px;
+            padding-block: 4rem;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background-color: transparent;
+            backdrop-filter: blur(8px);
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            color: #ffffff; 
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            line-height: 1.15;
+            margin-bottom: 1.25rem;
+            color: #ffffff;
+        }
+
+        .hero-title span { 
+            color: #ffffff;
+        }
+
+        .hero-desc {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
+            max-width: 52ch;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-banner-primary {
+            background-color: transparent;
+            color: #ffffff;
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            padding: 0.85rem 1.75rem;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            box-shadow: none;
+            transition: all 0.2s;
+        }
+        .btn-banner-primary:hover { background-color: #ffffff; color: #065f46; border-color: #ffffff; }
+
+        .btn-banner-outline {
+            background-color: transparent;
+            color: #ffffff;
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            padding: 0.85rem 1.75rem;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        .btn-banner-outline:hover {
+            background-color: #ffffff;
+            color: #065f46;
+            border-color: #ffffff;
+        }
+
+        /* --- SECTION GENERAL --- */
+        section {
+            padding-block: 5rem;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 650px;
+            margin-inline: auto;
+            margin-bottom: 3.5rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.25rem;
+            margin-bottom: 0.75rem;
+            color: var(--text);
+        }
+
+        .section-header p {
+            color: var(--fg);
+            font-size: 1.05rem;
+        }
+
+        /* --- PORTAL DESA GRID --- */
+        .portal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .portal-card {
+            background-color: var(--surface);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .portal-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary);
+        }
+
+        .portal-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: var(--primary);
+        }
+
+        .portal-card p {
+            font-size: 0.95rem;
+            color: var(--fg);
+            margin-bottom: 1.5rem;
+        }
+
+        .portal-link {
+            font-weight: 600;
+            color: var(--accent);
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        .portal-link:hover { color: #b45309; }
+
+        /* --- SAMBUTAN KEPALA DESA --- */
+        .leader-section {
+            background-color: var(--surface-alt);
+            border-block: 1px solid var(--border-light);
+        }
+
+        .leader-grid {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .leader-img-box {
+            background: var(--surface);
+            border: 2px dashed var(--border);
+            border-radius: var(--radius-lg);
+            padding: 3rem 1.5rem;
+            text-align: center;
+            color: var(--fg);
+            font-size: 0.9rem;
+        }
+
+        .leader-content h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .leader-title-sub {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .leader-quote {
+            font-style: italic;
+            color: var(--text);
+            background: var(--surface);
+            padding: 1.5rem;
+            border-left: 4px solid var(--accent);
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* --- BERITA & TERKINI --- */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .news-card {
+            background: var(--surface);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .news-badge-tag {
+            display: inline-block;
+            background: #d1fae5;
+            color: #065f46;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+        }
+
+        .news-card h4 {
+            font-size: 1.05rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* --- PELAYANAN DIGITAL CARD GRID --- */
+        .service-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .service-card-item {
+            background: var(--surface);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-md);
+            padding: 1.75rem 1.25rem;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .service-card-item:hover {
+            transform: translateY(-4px);
+            border-color: var(--primary);
+            box-shadow: var(--shadow-md);
+        }
+
+        .service-card-icon {
+            width: 52px;
+            height: 52px;
+            background: #d1fae5;
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .service-card-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+
+        .service-card-item h4 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+
+        .service-card-item p {
+            font-size: 0.8rem;
+            color: var(--fg);
+            margin-bottom: 1rem;
+        }
+
+        .service-card-link {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        /* --- TRANSPARANSI GRID --- */
+        .transparency-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .transparency-card {
+            background: var(--surface);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .transparency-card h4 {
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+            color: var(--primary);
+        }
+
+        .transparency-card p {
+            font-size: 0.85rem;
+            color: var(--fg);
+        }
+
+        /* --- KEKAYAAN / POTENSI DESA --- */
+        .potency-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            text-align: center;
+        }
+
+        .potency-box {
+            background: var(--surface);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-md);
+            padding: 2rem 1rem;
+            font-weight: 600;
+            color: var(--primary);
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.2s;
+        }
+        .potency-box:hover { transform: translateY(-3px); border-color: var(--accent); background: var(--surface-alt); }
+
+        /* --- MARKETPLACE --- */
+        .market-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .market-card {
+            background: var(--surface);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .market-price {
+            font-weight: 700;
+            color: var(--accent);
+            font-size: 1.1rem;
+            margin-block: 1rem 0.5rem;
+        }
+
+        .btn-buy {
+            background: var(--primary);
+            color: #ffffff;
+            text-align: center;
+            padding: 0.5rem;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+        }
+        .btn-buy:hover { background: var(--primary-hover); }
+
+        /* --- SECTION CTA PENGADUAN & LOKASI --- */
+        .cta-box {
+            background: linear-gradient(135deg, #065f46 0%, #047857 100%);
+            color: white;
+            border-radius: var(--radius-lg);
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            box-shadow: var(--shadow-md);
+        }
+        .cta-box h2 { color: white; margin-bottom: 1rem; }
+        .cta-box p { max-width: 60ch; margin-inline: auto; margin-bottom: 2rem; opacity: 0.95; }
+
+        .location-box {
+            background: var(--surface);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* --- FOOTER --- */
+        .site-footer {
+            background-color: #064e3b;
+            color: #e2e8f0;
+            padding-top: 4rem;
+            padding-bottom: 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.2fr;
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand h3 {
+            color: #fbbf24;
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand p {
+            font-size: 0.9rem;
+            line-height: 1.7;
+            max-width: 36ch;
+            color: #cbd5e1;
+        }
+
+        .footer-col h4 {
+            color: #fbbf24;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1.25rem;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .footer-links a {
+            font-size: 0.9rem;
+            color: #e2e8f0;
+            transition: color 0.2s;
+        }
+        .footer-links a:hover { color: #fbbf24; }
+
+        .footer-contacts {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            font-size: 0.9rem;
+            color: #e2e8f0;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            padding-top: 1.5rem;
+            text-align: center;
+            font-size: 0.85rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            color: #cbd5e1;
+        }
+
+        @media (max-width: 968px) {
+            .leader-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+        }
+        @media (max-width: 600px) {
+            .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER / NAVIGASI -->
+    <header class="site-header">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">
+                <img src="../assets/images/logo.png" alt="Logo Desa Pawenang" class="nav-logo-img">
+                <div class="nav-brand-text">
+                    <h1>Desa Pawenang</h1>
+                    <span>Portal Resmi Pemerintah Desa</span>
+                </div>
+            </a>
+
+            <div class="nav-actions">
+                <a href="pages/masuk.html" class="btn-action btn-login">Masuk</a>
+                <a href="pages/pendaftaran.html" class="btn-action btn-register">Pendaftaran</a>
+                <a href="pages/layanan.html" class="btn-action btn-service">Layanan Desa</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- BANNER UTAMA (HERO BANNER) -->
+    <section class="hero-banner">
+        <img src="../assets/images/Banner.jpg" alt="Banner Desa Pawenang" class="hero-bg">
+        <div class="hero-overlay"></div>
+        
+        <div class="container hero-content">
+            <span class="hero-badge">&#10024; Website Resmi Pemerintah Desa</span>
+            <h1 class="hero-title">Selamat Datang di <span>Desa Pawenang</span></h1>
+            <p class="hero-desc">Pusat informasi publik, layanan kependudukan digital secara mandiri, transparansi pengelolaan anggaran, serta pusat pengembangan potensi lokal.</p>
+            <div class="hero-buttons">
+                <a href="pages/layanan.html" class="btn-banner-primary">Mulai Layanan Desa</a>
+                <a href="pages/profil.html" class="btn-banner-outline">Jelajahi Profil Desa</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTAL DESA -->
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <h2>Layanan dan Informasi Desa</h2>
+                <p>Akses cepat ke berbagai layanan dan informasi Pemerintah Desa Pawenang.</p>
+            </div>
+            <div class="portal-grid">
+                <div class="portal-card">
+                    <div>
+                        <h3>Profil Desa</h3>
+                        <p>Sejarah, visi misi, geografis, dan data umum Desa Pawenang.</p>
+                    </div>
+                    <a href="pages/profil.html" class="portal-link">Selengkapnya &rarr;</a>
+                </div>
+                <div class="portal-card">
+                    <div>
+                        <h3>Pemerintahan Desa</h3>
+                        <p>Struktur organisasi, perangkat desa, dan BPD Desa Pawenang.</p>
+                    </div>
+                    <a href="pages/pemerintahan.html" class="portal-link">Selengkapnya &rarr;</a>
+                </div>
+                <div class="portal-card">
+                    <div>
+                        <h3>Layanan Desa</h3>
+                        <p>Ajukan surat keterangan dan layanan administrasi secara online.</p>
+                    </div>
+                    <a href="pages/layanan.html" class="portal-link">Selengkapnya &rarr;</a>
+                </div>
+                <div class="portal-card">
+                    <div>
+                        <h3>Transparansi</h3>
+                        <p>APBDes, realisasi anggaran, dan laporan pembangunan desa.</p>
+                    </div>
+                    <a href="pages/transparansi.html" class="portal-link">Selengkapnya &rarr;</a>
+                </div>
+                <div class="portal-card">
+                    <div>
+                        <h3>Berita Desa</h3>
+                        <p>Informasi terkini kegiatan, program, dan pengumuman resmi desa.</p>
+                    </div>
+                    <a href="pages/informasi.html" class="portal-link">Selengkapnya &rarr;</a>
+                </div>
+                <div class="portal-card">
+                    <div>
+                        <h3>Pengaduan Masyarakat</h3>
+                        <p>Sampaikan aspirasi dan pengaduan kepada Pemerintah Desa.</p>
+                    </div>
+                    <a href="pages/pengaduan.html" class="portal-link">Selengkapnya &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PESAN PIMPINAN / SAMBUTAN KEPALA DESA -->
+    <section class="leader-section">
+        <div class="container">
+            <div class="leader-grid">
+                <div class="leader-img-box">
+                    <p>[ Foto Kepala Desa ]<br><span style="font-size: 0.8rem;">(akan diperbarui)</span></p>
+                </div>
+                <div class="leader-content">
+                    <h2>Sambutan Kepala Desa</h2>
+                    <div class="leader-title-sub">
+                        [Nama Kepala Desa]<br>
+                        <span style="font-weight: normal; color: var(--fg);">Kepala Desa Pawenang &mdash; Periode [Tahun]&ndash;[Tahun]</span>
+                    </div>
+                    <blockquote class="leader-quote">
+                        "Atas nama Pemerintah Desa Pawenang, kami menyambut kehadiran Anda di portal resmi ini. Website ini dihadirkan sebagai wujud komitmen kami dalam mewujudkan pemerintahan desa yang transparan, akuntabel, dan semakin dekat dengan masyarakat."
+                    </blockquote>
+                    <a href="pages/profil.html" class="portal-link">Selengkapnya &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TERKINI / BERITA TERBARU -->
+    <section>
+        <div class="container">
+            <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2rem;">
+                <div>
+                    <h2 style="font-size: 2rem;">Terkini</h2>
+                    <p style="color: var(--fg);">Berita terbaru seputar kegiatan dan program desa.</p>
+                </div>
+                <a href="pages/informasi.html" class="portal-link">Lihat Semua &rarr;</a>
+            </div>
+            <div class="news-grid">
+                <div class="news-card">
+                    <span class="news-badge-tag">Pemerintahan</span>
+                    <h4>Rapat Koordinasi Perangkat Desa</h4>
+                    <p style="font-size: 0.85rem; color: var(--fg);">Placeholder kegiatan koordinasi rutin perangkat desa.</p>
+                </div>
+                <div class="news-card">
+                    <span class="news-badge-tag">Kegiatan</span>
+                    <h4>Gotong Royong Bersih Lingkungan</h4>
+                    <p style="font-size: 0.85rem; color: var(--fg);">Placeholder aksi bersih lingkungan bersama warga.</p>
+                </div>
+                <div class="news-card">
+                    <span class="news-badge-tag">Sosial</span>
+                    <h4>Penyaluran Bantuan Sosial Desa</h4>
+                    <p style="font-size: 0.85rem; color: var(--fg);">Placeholder penyaluran bantuan tahap kepada warga.</p>
+                </div>
+                <div class="news-card">
+                    <span class="news-badge-tag">Musyawarah</span>
+                    <h4>Musyawarah Desa Perencanaan Pembangunan</h4>
+                    <p style="font-size: 0.85rem; color: var(--fg);">Placeholder musrenbangdes tahun anggaran berjalan.</p>
+                </div>
+            </div>
+            <div style="text-align: center;">
+                <a href="pages/informasi.html" class="btn-action btn-service" style="padding: 0.75rem 1.5rem; font-size: 0.9rem; background: var(--primary); color: white; border: none;">Lihat Semua Berita</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PELAYANAN DIGITAL -->
+    <section style="background-color: var(--surface-alt);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Pelayanan Digital</h2>
+                <p>Ajukan layanan desa secara online dengan mudah, cepat, dan tanpa perlu antre.</p>
+            </div>
+            
+            <div class="service-cards-grid">
+                <!-- Layanan 1 -->
+                <div class="service-card-item">
+                    <div>
+                        <div class="service-card-icon">
+                            <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+                        </div>
+                        <h4>Surat Keterangan</h4>
+                        <p>Pengajuan berbagai surat keterangan resmi desa.</p>
+                    </div>
+                    <a href="pages/layanan.html" class="service-card-link">Ajukan &rarr;</a>
+                </div>
+                <!-- Layanan 2 -->
+                <div class="service-card-item">
+                    <div>
+                        <div class="service-card-icon">
+                            <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+                        </div>
+                        <h4>Surat Domisili</h4>
+                        <p>Keterangan tempat tinggal dan domisili warga.</p>
+                    </div>
+                    <a href="pages/layanan.html" class="service-card-link">Ajukan &rarr;</a>
+                </div>
+                <!-- Layanan 3 -->
+                <div class="service-card-item">
+                    <div>
+                        <div class="service-card-icon">
+                            <svg viewBox="0 0 24 24"><path d="M20 6h-4V4c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zM10 4h4v2h-4V4zm10 15H4V8h16v11z"/></svg>
+                        </div>
+                        <h4>Surat Ket. Usaha</h4>
+                        <p>Pengantar legalitas dan keterangan usaha mikro.</p>
+                    </div>
+                    <a href="pages/layanan.html" class="service-card-link">Ajukan &rarr;</a>
+                </div>
+                <!-- Layanan 4 -->
+                <div class="service-card-item">
+                    <div>
+                        <div class="service-card-icon">
+                            <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+                        </div>
+                        <h4>Surat Ket. Tidak Mampu</h4>
+                        <p>Layanan verifikasi keterangan kesejahteraan.</p>
+                    </div>
+                    <a href="pages/layanan.html" class="service-card-link">Ajukan &rarr;</a>
+                </div>
+                <!-- Layanan 5 -->
+                <div class="service-card-item">
+                    <div>
+                        <div class="service-card-icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                        </div>
+                        <h4>Adm. Kependudukan</h4>
+                        <p>Pengurusan data kependudukan terpadu.</p>
+                    </div>
+                    <a href="pages/layanan.html" class="service-card-link">Ajukan &rarr;</a>
+                </div>
+                <!-- Layanan 6 -->
+                <div class="service-card-item">
+                    <div>
+                        <div class="service-card-icon">
+                            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/></svg>
+                        </div>
+                        <h4>Pengaduan</h4>
+                        <p>Sampaikan aspirasi dan laporan pengaduan.</p>
+                    </div>
+                    <a href="pages/pengaduan.html" class="service-card-link">Ajukan &rarr;</a>
+                </div>
+            </div>
+
+            <div style="text-align: center; max-width: 500px; margin-inline: auto;">
+                <p style="color: var(--fg); font-size: 0.9rem; margin-bottom: 1.5rem;">Belum menemukan layanan yang Anda butuhkan? Lihat semua jenis layanan yang tersedia.</p>
+                <a href="pages/layanan.html" class="btn-action btn-service" style="padding: 0.75rem 1.5rem; background: var(--primary); color: white; border: none;">Lihat Semua Layanan</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- KETERBUKAAN INFORMASI & TRANSPARANSI -->
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <h2>Keterbukaan Informasi</h2>
+                <p>Pemerintah Desa Pawenang berkomitmen memberikan informasi pembangunan dan pengelolaan anggaran secara terbuka kepada masyarakat.</p>
+            </div>
+            <div class="transparency-grid">
+                <div class="transparency-card">
+                    <h4>APBDes</h4>
+                    <p>Data akan tersedia setelah terhubung dengan sistem backend.</p>
+                </div>
+                <div class="transparency-card">
+                    <h4>Realisasi Anggaran</h4>
+                    <p>Data akan tersedia setelah terhubung dengan sistem backend.</p>
+                </div>
+                <div class="transparency-card">
+                    <h4>Pembangunan Desa</h4>
+                    <p>Data akan tersedia setelah terhubung dengan sistem backend.</p>
+                </div>
+                <div class="transparency-card">
+                    <h4>Program Desa</h4>
+                    <p>Data akan tersedia setelah terhubung dengan sistem backend.</p>
+                </div>
+            </div>
+            <div style="text-align: center;">
+                <a href="pages/transparansi.html" class="portal-link">Lihat Transparansi Desa &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- KEKAYAAN / POTENSI DESA -->
+    <section style="background-color: var(--surface-alt);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Kekayaan Desa</h2>
+                <p>Desa Pawenang memiliki berbagai potensi unggulan yang terus dikembangkan untuk kemajuan dan kesejahteraan masyarakat.</p>
+            </div>
+            <div class="potency-grid">
+                <div class="potency-box">Pertanian</div>
+                <div class="potency-box">UMKM</div>
+                <div class="potency-box">Peternakan</div>
+                <div class="potency-box">Wisata</div>
+                <div class="potency-box">Kerajinan</div>
+            </div>
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="pages/marketplace.html" class="portal-link">
+    Jelajahi Produk Desa &rarr;
+</a>
+            </div>
+        </div>
+    </section>
+<!-- ASPIRASI & PENGADUAN CTA -->
+    <section style="padding-top: 0;">
+        <div class="container">
+            <div class="cta-box">
+                <h2>Sampaikan Aspirasi dan Pengaduan</h2>
+                <p>Partisipasi masyarakat merupakan bagian penting dalam membangun Desa Pawenang yang lebih baik. Suara Anda didengar dan ditindaklanjuti.</p>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="pages/pengaduan.html" class="btn-banner-primary" style="background: #ffffff; color: var(--primary);">Sampaikan Pengaduan</a>
+                    <a href="pages/cek-status.html" class="btn-banner-outline">Cek Status Pengaduan</a>
+                </div>
+            </div>
+
+            <!-- LOKASI KANTOR DESA -->
+            <div class="location-box">
+                <h3 style="margin-bottom: 0.5rem; font-size: 1.5rem; color: var(--primary);">Lokasi Kantor Desa Pawenang</h3>
+                <p style="color: var(--fg); margin-bottom: 1.5rem;">[Alamat Kantor Desa Pawenang] &mdash; [Kecamatan], [Kabupaten]</p>
+                <p style="font-size: 0.85rem; color: var(--fg); border: 1px dashed var(--border); padding: 2rem; border-radius: var(--radius-sm); margin-bottom: 1.5rem; background: var(--surface-alt);">Peta akan ditampilkan setelah koordinat resmi Kantor Desa Pawenang tersedia.</p>
+                <div style="font-weight: 500; font-size: 0.95rem; color: var(--text);">
+                    <p>[No. Telepon] | [Email Desa]</p>
+                    <p style="margin-top: 0.25rem; color: var(--fg);">Senin &ndash; Jumat: [Jam Layanan]</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>Pemerintah Desa Pawenang</h3>
+                    <p>Portal resmi Pemerintah Desa Pawenang sebagai media informasi, pelayanan masyarakat, transparansi anggaran, dan pengembangan potensi desa.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigasi</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Beranda</a></li>
+                        <li><a href="pages/profil.html">Profil Desa</a></li>
+                        <li><a href="pages/pemerintahan.html">Pemerintahan</a></li>
+                        <li><a href="pages/informasi.html">Informasi</a></li>
+                        <li><a href="pages/layanan.html">Layanan</a></li>
+                        <li><a href="pages/transparansi.html">Transparansi</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Layanan</h4>
+                    <ul class="footer-links">
+                        <li><a href="pages/layanan.html">Layanan Desa</a></li>
+                        <li><a href="pages/pengaduan.html">Pengaduan</a></li>
+                        <li><a href="pages/cek-status.html">Cek Status</a></li>
+                        <li><a href="pages/informasi-publik.html">Informasi Publik</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Kontak</h4>
+                    <div class="footer-contacts">
+                        <p>+62 8381055378</p>
+                        <p>desa.pawenang@gmail.com</p>
+                        <p>@desapawenang</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Pemerintah Desa Pawenang. Semua Hak Dilindungi.</p>
+                <p>Developer: Muhamad Ruslan, S.Pd.Gr</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketplace Desa Pawenang | Website Resmi Pemerintah Desa Pawenang</title>
+    <meta name="description" content="Temukan dan dukung produk unggulan masyarakat Desa Pawenang, UMKM, kerajinan, kuliner, dan pertanian lokal.">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Favicon Resmi -->
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            /* Palette Profesional Pemerintahan: Deep Emerald & Gold Accents */
+            --bg: #f8fafc;
+            --surface: #ffffff;
+            --surface-alt: #f0fdf4;
+            --text: #0f172a;
+            --fg: #334155;
+            --primary: #065f46;
+            --primary-hover: #047857;       
+            --accent: #d97706;
+            --accent-hover: #b45309;
+            --border: #cbd5e1;
+            --border-light: #e2e8f0;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.06), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            --radius-sm: 8px;
+            --radius-md: 14px;
+            --radius-lg: 20px;
+            --nav-height: 76px;
+            --font-main: 'Plus Jakarta Sans', sans-serif;
+            --font-heading: 'Playfair Display', serif;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            color: var(--text);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin-inline: auto;
+            padding-inline: 1.5rem;
+        }
+
+        /* --- HEADER & NAVIGASI (HIJAU ZAMRUD + AKSEN EMAS) --- */
+        .site-header {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            height: var(--nav-height);
+            background-color: var(--primary);
+            border-bottom: 2px solid var(--accent);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 1200px;
+            margin-inline: auto;
+            padding-inline: 1.5rem;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .nav-logo-img {
+            width: 44px;
+            height: 44px;
+            object-fit: contain;
+            border-radius: 50%;
+            background: #ffffff;
+            padding: 2px;
+        }
+
+        .nav-brand-text h1 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            line-height: 1.2;
+            color: #ffffff;
+        }
+
+        .nav-brand-text span {
+            font-size: 0.75rem;
+            color: #ffffff;
+            font-weight: 500;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+        }
+
+        .nav-menu a {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #e2e8f0;
+            transition: color 0.2s;
+        }
+
+        .nav-menu a:hover, .nav-menu a.active {
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        .nav-menu a.active {
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 2px;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #ffffff;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* --- HERO MARKETPLACE (KONSISTEN DENGAN INDEX) --- */
+        .marketplace-hero {
+            position: relative;
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: calc(var(--nav-height) + 2rem);
+            padding-bottom: 4rem;
+            background-color: #064e3b;
+            overflow: hidden;
+            text-align: center;
+            color: #ffffff;
+        }
+
+        .hero-bg-img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            opacity: 0.75;
+            z-index: 0;
+        }
+
+        .hero-overlay-gradient {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(3, 43, 31, 0.35) 0%, rgba(6, 95, 70, 0.25) 100%);
+            z-index: 1;
+        }
+
+        .marketplace-hero .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .marketplace-hero h1 {
+            font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+            color: #ffffff;
+            margin-bottom: 0.75rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .marketplace-hero p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            max-width: 650px;
+            margin-inline: auto;
+            margin-bottom: 2rem;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .hero-actions {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-hero-primary {
+            background-color: var(--accent);
+            color: #ffffff;
+            padding: 0.75rem 1.75rem;
+            border-radius: var(--radius-sm);
+            font-weight: 700;
+            font-size: 0.9rem;
+            box-shadow: var(--shadow-sm);
+            transition: background 0.2s;
+        }
+        .btn-hero-primary:hover { background-color: var(--accent-hover); }
+
+        .btn-hero-outline {
+            background-color: transparent;
+            color: #ffffff;
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            padding: 0.75rem 1.75rem;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+        .btn-hero-outline:hover { background-color: #ffffff; color: var(--primary); border-color: #ffffff; }
+
+        /* --- MAIN SECTION --- */
+        section {
+            padding-block: 3.5rem;
+        }
+
+        /* --- SEARCH BAR --- */
+        .search-container {
+            max-width: 750px;
+            margin: -2rem auto 2.5rem auto;
+            padding: 0 1.5rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .search-box {
+            display: flex;
+            background: var(--surface);
+            border: 2px solid var(--border-light);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+            transition: border-color 0.2s;
+        }
+
+        .search-box:focus-within {
+            border-color: var(--primary);
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 1rem 1.25rem;
+            border: none;
+            outline: none;
+            font-size: 0.95rem;
+            font-family: var(--font-main);
+            color: var(--text);
+            background: transparent;
+        }
+
+        .search-btn {
+            background: var(--primary);
+            color: #ffffff;
+            border: none;
+            padding: 0 1.75rem;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: var(--font-main);
+            transition: background 0.2s;
+        }
+
+        .search-btn:hover { background: var(--primary-hover); }
+
+        /* --- KATEGORI PRODUK --- */
+        .categories-section {
+            margin-bottom: 2rem;
+        }
+
+        .category-scroll {
+            display: flex;
+            gap: 0.75rem;
+            overflow-x: auto;
+            padding-bottom: 0.5rem;
+            scrollbar-width: thin;
+        }
+
+        .category-scroll::-webkit-scrollbar {
+            height: 6px;
+        }
+        .category-scroll::-webkit-scrollbar-thumb {
+            background: var(--border);
+            border-radius: 4px;
+        }
+
+        .cat-btn {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            color: var(--fg);
+            padding: 0.6rem 1.25rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            white-space: nowrap;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .cat-btn.active, .cat-btn:hover {
+            background: var(--primary);
+            color: #ffffff;
+            border-color: var(--primary);
+        }
+
+        /* --- TOOLBAR (COUNT & SORTING) --- */
+        .market-toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .product-count {
+            font-size: 0.9rem;
+            color: var(--fg);
+            font-weight: 500;
+        }
+
+        .sort-box {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--fg);
+        }
+
+        .sort-select {
+            padding: 0.5rem 0.75rem;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            background: var(--surface);
+            font-family: var(--font-main);
+            color: var(--text);
+            font-size: 0.85rem;
+            outline: none;
+            cursor: pointer;
+        }
+
+        /* --- GRID PRODUK --- */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .product-card {
+            background: var(--surface);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary);
+        }
+
+        .product-img-wrap {
+            width: 100%;
+            height: 180px;
+            background: #e2e8f0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-category-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(6, 95, 70, 0.85);
+            backdrop-filter: blur(4px);
+            color: #ffffff;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .product-body {
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .product-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 0.35rem;
+        }
+
+        .product-seller {
+            font-size: 0.8rem;
+            color: var(--fg);
+            margin-bottom: 0.25rem;
+        }
+
+        .product-location {
+            font-size: 0.75rem;
+            color: #64748b;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.2rem;
+        }
+
+        .product-price {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-top: auto;
+            margin-bottom: 1rem;
+        }
+
+        .product-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem;
+            padding: 0 1.25rem 1.25rem 1.25rem;
+        }
+
+        .btn-detail {
+            background: var(--surface-alt);
+            color: var(--primary);
+            border: 1px solid var(--border-light);
+            padding: 0.5rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .btn-detail:hover { background: #d1fae5; border-color: var(--primary); }
+
+        .btn-whatsapp {
+            background: var(--primary);
+            color: #ffffff;
+            border: none;
+            padding: 0.5rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .btn-whatsapp:hover { background: var(--primary-hover); }
+
+        /* --- STATES --- */
+        .state-container {
+            text-align: center;
+            padding: 4rem 1.5rem;
+            background: var(--surface);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-md);
+            margin-bottom: 3rem;
+        }
+
+        .skeleton-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        .skeleton-card {
+            background: var(--surface);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-md);
+            height: 320px;
+            animation: pulse 1.5s infinite ease-in-out;
+        }
+        @keyframes pulse {
+            0% { opacity: 0.6; }
+            50% { opacity: 1; }
+            100% { opacity: 0.6; }
+        }
+
+        .empty-state h3, .error-state h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+        .empty-state p, .error-state p {
+            font-size: 0.9rem;
+            color: var(--fg);
+            margin-bottom: 1.5rem;
+        }
+        .btn-retry {
+            background: var(--primary);
+            color: #ffffff;
+            border: none;
+            padding: 0.6rem 1.5rem;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .pagination-container {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .btn-load-more {
+            background: var(--surface);
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            padding: 0.75rem 2rem;
+            border-radius: var(--radius-sm);
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .btn-load-more:hover {
+            background: var(--primary);
+            color: #ffffff;
+        }
+
+        .sell-promo-box {
+            background: var(--surface-alt);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .sell-promo-box h3 {
+            font-size: 1.75rem;
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+        }
+
+        .sell-promo-box p {
+            max-width: 60ch;
+            margin-inline: auto;
+            color: var(--fg);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .verification-note {
+            font-size: 0.8rem;
+            color: #64748b;
+            margin-top: 1rem;
+            font-style: italic;
+        }
+
+        /* --- MODAL DETAIL PRODUK --- */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(4px);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-container {
+            background: var(--surface);
+            width: 100%;
+            max-width: 650px;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+            max-height: 90vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .modal-overlay.active .modal-container {
+            transform: translateY(0);
+        }
+
+        .modal-header {
+            padding: 1.25rem 1.5rem;
+            border-bottom: 1px solid var(--border-light);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h3 {
+            font-size: 1.25rem;
+            color: var(--primary);
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--fg);
+        }
+
+        .modal-body {
+            padding: 1.5rem;
+            overflow-y: auto;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 1.5rem;
+        }
+
+        .modal-img {
+            width: 100%;
+            height: 220px;
+            border-radius: var(--radius-sm);
+            object-fit: cover;
+            background: #e2e8f0;
+        }
+
+        .modal-details h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-price {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .modal-info-item {
+            font-size: 0.85rem;
+            color: var(--fg);
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-desc {
+            font-size: 0.9rem;
+            color: var(--fg);
+            margin-top: 1rem;
+            line-height: 1.6;
+            border-top: 1px dashed var(--border);
+            padding-top: 1rem;
+        }
+
+        .modal-footer {
+            padding: 1rem 1.5rem;
+            border-top: 1px solid var(--border-light);
+            background: var(--bg);
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+        }
+
+        /* --- FOOTER (SELARAS DENGAN INDEX) --- */
+        .site-footer {
+            background-color: #064e3b;
+            color: #e2e8f0;
+            padding-top: 4rem;
+            padding-bottom: 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.2fr;
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand h3 {
+            color: #fbbf24;
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand p {
+            font-size: 0.9rem;
+            line-height: 1.7;
+            max-width: 36ch;
+            color: #cbd5e1;
+        }
+
+        .footer-col h4 {
+            color: #fbbf24;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1.25rem;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .footer-links a {
+            font-size: 0.9rem;
+            color: #e2e8f0;
+            transition: color 0.2s;
+        }
+        .footer-links a:hover { color: #fbbf24; }
+
+        .footer-contacts {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            font-size: 0.9rem;
+            color: #e2e8f0;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            padding-top: 1.5rem;
+            text-align: center;
+            font-size: 0.85rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            color: #cbd5e1;
+        }
+
+        /* Responsive Media Queries */
+        @media (max-width: 968px) {
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+            .modal-body { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: var(--nav-height);
+                left: 0; right: 0;
+                background: var(--primary);
+                flex-direction: column;
+                padding: 1.5rem;
+                gap: 1rem;
+                border-bottom: 2px solid var(--accent);
+            }
+            .nav-menu.active { display: flex; }
+            .mobile-menu-toggle { display: block; }
+            .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. HEADER & LOGO -->
+    <header class="site-header">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-brand">
+                <img src="../assets/images/logo.png" alt="Logo Desa Pawenang" class="nav-logo-img">
+                <div class="nav-brand-text">
+                    <h1>Desa Pawenang</h1>
+                    <span>Portal Resmi Pemerintah Desa</span>
+                </div>
+            </a>
+
+            <nav class="nav-menu" id="navMenu">
+                <a href="../index.html">Beranda</a>
+                <a href="./profil.html">Profil Desa</a>
+                <a href="./pemerintahan.html">Pemerintahan</a>
+                <a href="./informasi.html">Informasi</a>
+                <a href="./layanan.html">Layanan</a>
+                <a href="./marketplace.html" class="active">Marketplace</a>
+                <a href="./transparansi.html">Transparansi</a>
+                <a href="./pengaduan.html">Pengaduan</a>
+            </nav>
+
+            <button class="mobile-menu-toggle" id="menuToggle" aria-label="Buka Menu">&#9776;</button>
+        </div>
+    </header>
+
+    <!-- 2. HERO MARKETPLACE DENGAN BANNER UTAMA -->
+    <section class="marketplace-hero">
+        <img src="assets/images/Banner.jpg" alt="Banner Desa Pawenang" class="hero-bg-img">
+        <div class="hero-overlay-gradient"></div>
+        <div class="container">
+            <h1>Marketplace Desa Pawenang</h1>
+            <p>Temukan dan dukung produk unggulan masyarakat Desa Pawenang.</p>
+            <div class="hero-actions">
+                <a href="#produkSection" class="btn-hero-primary">Lihat Produk</a>
+                <a href="upload-produk.html" class="btn-hero-outline">Jual Produk</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. SEARCH BAR -->
+    <div class="search-container">
+        <div class="search-box">
+            <input type="text" id="searchInput" class="search-input" placeholder="Cari produk, makanan, kerajinan, jasa, atau UMKM..." oninput="handleSearch()">
+            <button class="search-btn" onclick="handleSearch()">Cari</button>
+        </div>
+    </div>
+
+    <!-- MAIN PRODUCT SECTION -->
+    <section id="produkSection">
+        <div class="container">
+            
+            <!-- 4. KATEGORI PRODUK -->
+            <div class="categories-section">
+                <div class="category-scroll" id="categoryScroll">
+                    <button class="cat-btn active" onclick="filterByCategory('Semua')">Semua</button>
+                    <button class="cat-btn" onclick="filterByCategory('Makanan & Minuman')">Makanan & Minuman</button>
+                    <button class="cat-btn" onclick="filterByCategory('Pertanian')">Pertanian</button>
+                    <button class="cat-btn" onclick="filterByCategory('Peternakan')">Peternakan</button>
+                    <button class="cat-btn" onclick="filterByCategory('Kerajinan')">Kerajinan</button>
+                    <button class="cat-btn" onclick="filterByCategory('Fashion')">Fashion</button>
+                    <button class="cat-btn" onclick="filterByCategory('Jasa')">Jasa</button>
+                    <button class="cat-btn" onclick="filterByCategory('UMKM')">UMKM</button>
+                    <button class="cat-btn" onclick="filterByCategory('Produk Lainnya')">Produk Lainnya</button>
+                </div>
+            </div>
+
+            <!-- 6. SORTING & COUNTER -->
+            <div class="market-toolbar">
+                <div class="product-count" id="productCount">Menampilkan produk...</div>
+                <div class="sort-box">
+                    <label for="sortSelect">Urutkan:</label>
+                    <select id="sortSelect" class="sort-select" onchange="handleSort()">
+                        <option value="terbaru">Terbaru</option>
+                        <option value="termurah">Harga Terendah</option>
+                        <option value="termahal">Harga Tertinggi</option>
+                        <option value="nama">Nama Produk</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- DYNAMIC CONTAINER (LOADING, ERROR, EMPTY, GRID) -->
+            <div id="dynamicContainer">
+                <!-- Skeleton Loading Default saat pertama kali dimuat -->
+                <div class="skeleton-grid" id="skeletonLoader">
+                    <div class="skeleton-card"></div>
+                    <div class="skeleton-card"></div>
+                    <div class="skeleton-card"></div>
+                    <div class="skeleton-card"></div>
+                </div>
+            </div>
+
+            <!-- 7. PAGINATION / LOAD MORE -->
+            <div class="pagination-container" id="paginationContainer" style="display: none;">
+                <button class="btn-load-more" onclick="loadMoreProducts()">Muat Lebih Banyak</button>
+            </div>
+
+            <!-- 9 & 10. TOMBOL JUAL PRODUK & INFORMASI VERIFIKASI -->
+            <div class="sell-promo-box">
+                <h3>Jual Produk Desa</h3>
+                <p>Siapa pun masyarakat Desa Pawenang dapat mengirimkan produk untuk ditampilkan di Marketplace Desa.</p>
+                <a href="upload-produk.html" class="btn-hero-primary">Jual Produk Desa</a>
+                <div class="verification-note">
+                    * Produk yang dikirim masyarakat akan melalui proses verifikasi sebelum ditampilkan secara publik.
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 8. MODAL DETAIL PRODUK -->
+    <div class="modal-overlay" id="productModal" onclick="outsideCloseModal(event)">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3 id="modalTitle">Detail Produk</h3>
+                <button class="modal-close" onclick="closeProductDetail()">&times;</button>
+            </div>
+            <div class="modal-body" id="modalBodyContent">
+                <!-- Konten modal diisi via JavaScript -->
+            </div>
+            <div class="modal-footer" id="modalFooterContent">
+                <!-- Tombol Hubungi Penjual -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 15. FOOTER (SELARAS DENGAN INDEX) -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>Pemerintah Desa Pawenang</h3>
+                    <p>Portal resmi Pemerintah Desa Pawenang sebagai media informasi, pelayanan masyarakat, transparansi anggaran, dan pengembangan potensi desa.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigasi</h4>
+                    <ul class="footer-links">
+                        <li><a href="../index.html">Beranda</a></li>
+                        <li><a href="profil.html">Profil Desa</a></li>
+                        <li><a href="pemerintahan.html">Pemerintahan</a></li>
+                        <li><a href="informasi.html">Informasi</a></li>
+                        <li><a href="layanan.html">Layanan</a></li>
+                        <li><a href="transparansi.html">Transparansi</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Layanan</h4>
+                    <ul class="footer-links">
+                        <li><a href="layanan.html">Layanan Desa</a></li>
+                        <li><a href="pengaduan.html">Pengaduan</a></li>
+                        <li><a href="upload-produk.html">Pendaftaran Produk</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Kontak</h4>
+                    <div class="footer-contacts">
+                        <p>+62 8381055378</p>
+                        <p>desa.pawenang@gmail.com</p>
+                        <p>[Alamat Kantor Desa Pawenang]</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Pemerintah Desa Pawenang. Semua Hak Dilindungi.</p>
+                <p>Developer: Muhamad Ruslan, S.Pd.Gr</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT: STRUKTUR API & VANILLA JS -->
+    <script>
+        // Toggle Mobile Menu
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Struktur API Placeholder
+        const API_BASE_URL = '';
+
+        // Data dummy sementara (hanya status "approved") dengan URL foto produk yang valid dan stabil
+        const dummyProductsDatabase = [
+            {
+                id: "prod-001",
+                name: "Keripik Pisang",
+                category: "Makanan & Minuman",
+                price: 25000,
+                description: "Keripik pisang renyah manis gurih buatan tangan warga lokal dengan pisang pilihan berkualitas tinggi dari perkebunan desa.",
+                image_url: "https://images.unsplash.com/photo-1566478989037-eec170784d0b?auto=format&fit=crop&w=600&q=80",
+                seller_name: "Contoh UMKM Desa",
+                seller_phone: "628381055378",
+                location: "Desa Pawenang",
+                status: "approved",
+                created_at: "2026-10-01T10:00:00Z"
+            },
+            {
+                id: "prod-002",
+                name: "Beras Organik Murni",
+                category: "Pertanian",
+                price: 75000,
+                description: "Beras putih berkualitas premium hasil panen kelompok tani lokal Desa Pawenang tanpa bahan pengawet kimia.",
+                image_url: "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=600&q=80",
+                seller_name: "Kelompok Tani Makmur",
+                seller_phone: "628381055378",
+                location: "Desa Pawenang",
+                status: "approved",
+                created_at: "2026-10-02T12:30:00Z"
+            },
+            {
+                id: "prod-003",
+                name: "Madu Hutan Asli",
+                category: "Produk Lainnya",
+                price: 120000,
+                description: "Madu murni yang dipanen langsung dari hutan sekitar pegunungan desa oleh peternak lebah lokal.",
+                image_url: "https://images.unsplash.com/photo-1587049352847-4a222e784d38?auto=format&fit=crop&w=600&q=80",
+                seller_name: "Peternak Lebah Mandiri",
+                seller_phone: "628381055378",
+                location: "Desa Pawenang",
+                status: "approved",
+                created_at: "2026-10-03T09:15:00Z"
+            },
+            {
+                id: "prod-004",
+                name: "Tas Anyaman Bambu",
+                category: "Kerajinan",
+                price: 95000,
+                description: "Kerajinan tangan tradisional berupa tas anyaman bambu multifungsi yang kuat dan elegan.",
+                image_url: "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=600&q=80",
+                seller_name: "Kriya Bambu Lestari",
+                seller_phone: "628381055378",
+                location: "Desa Pawenang",
+                status: "approved",
+                created_at: "2026-10-04T14:00:00Z"
+            }
+        ];
+
+        let state = {
+            products: [],
+            filteredProducts: [],
+            currentCategory: 'Semua',
+            searchQuery: '',
+            sortBy: 'terbaru',
+            isLoading: true,
+            hasError: false
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadProducts();
+        });
+
+        async function loadProducts() {
+            state.isLoading = true;
+            state.hasError = false;
+            renderProducts();
+
+            try {
+                await new Promise(resolve => setTimeout(resolve, 800));
+                state.products = dummyProductsDatabase.filter(p => p.status === 'approved');
+                state.filteredProducts = [...state.products];
+                state.isLoading = false;
+                applyFilterAndSort();
+            } catch (error) {
+                console.error("Gagal memuat produk:", error);
+                state.isLoading = false;
+                state.hasError = true;
+                renderProducts();
+            }
+        }
+
+        function filterByCategory(category) {
+            state.currentCategory = category;
+            const buttons = document.querySelectorAll('.cat-btn');
+            buttons.forEach(btn => {
+                if(btn.textContent.trim() === category) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+            applyFilterAndSort();
+        }
+
+        function handleSearch() {
+            const input = document.getElementById('searchInput');
+            state.searchQuery = input.value.toLowerCase().trim();
+            applyFilterAndSort();
+        }
+
+        function handleSort() {
+            const select = document.getElementById('sortSelect');
+            state.sortBy = select.value;
+            applyFilterAndSort();
+        }
+
+        function applyFilterAndSort() {
+            let result = [...state.products];
+
+            if (state.currentCategory !== 'Semua') {
+                result = result.filter(p => p.category === state.currentCategory);
+            }
+
+            if (state.searchQuery) {
+                result = result.filter(p => 
+                    p.name.toLowerCase().includes(state.searchQuery) ||
+                    p.description.toLowerCase().includes(state.searchQuery) ||
+                    p.seller_name.toLowerCase().includes(state.searchQuery)
+                );
+            }
+
+            result.sort((a, b) => {
+                if (state.sortBy === 'terbaru') {
+                    return new Date(b.created_at) - new Date(a.created_at);
+                } else if (state.sortBy === 'termurah') {
+                    return a.price - b.price;
+                } else if (state.sortBy === 'termahal') {
+                    return b.price - a.price;
+                } else if (state.sortBy === 'nama') {
+                    return a.name.localeCompare(b.name);
+                }
+                return 0;
+            });
+
+            state.filteredProducts = result;
+            renderProducts();
+        }
+
+        function renderProducts() {
+            const container = document.getElementById('dynamicContainer');
+            const countEl = document.getElementById('productCount');
+            const paginationEl = document.getElementById('paginationContainer');
+
+            countEl.textContent = `Menampilkan ${state.filteredProducts.length} produk`;
+
+            if (state.isLoading) {
+                container.innerHTML = `
+                    <div class="skeleton-grid">
+                        <div class="skeleton-card"></div>
+                        <div class="skeleton-card"></div>
+                        <div class="skeleton-card"></div>
+                        <div class="skeleton-card"></div>
+                    </div>
+                `;
+                paginationEl.style.display = 'none';
+                return;
+            }
+
+            if (state.hasError) {
+                container.innerHTML = `
+                    <div class="state-container error-state">
+                        <h3>Gagal memuat produk.</h3>
+                        <p>Terjadi kendala saat menghubungkan ke server.</p>
+                        <button class="btn-retry" onclick="loadProducts()">Coba Lagi</button>
+                    </div>
+                `;
+                paginationEl.style.display = 'none';
+                return;
+            }
+
+            if (state.filteredProducts.length === 0) {
+                container.innerHTML = `
+                    <div class="state-container empty-state">
+                        <h3>Belum ada produk yang tersedia.</h3>
+                        <p>Jadilah yang pertama memasarkan produk Anda di Marketplace Desa.</p>
+                        <a href="upload-produk.html" class="btn-retry" style="display:inline-block; text-decoration:none;">Jual Produk Sekarang</a>
+                    </div>
+                `;
+                paginationEl.style.display = 'none';
+                return;
+            }
+
+            let html = '<div class="product-grid">';
+            state.filteredProducts.forEach(product => {
+                const formattedPrice = new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(product.price);
+                
+                html += `
+                    <div class="product-card">
+                        <div class="product-img-wrap">
+                            <span class="product-category-badge">${product.category}</span>
+                            <img src="${product.image_url}" alt="${product.name}" loading="lazy" onerror="this.src='assets/images/favicon.png';">
+                        </div>
+                        <div class="product-body">
+                            <h4 class="product-title">${product.name}</h4>
+                            <div class="product-seller">Oleh: ${product.seller_name}</div>
+                            <div class="product-location">📍 ${product.location}</div>
+                            <div class="product-price">${formattedPrice}</div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn-detail" onclick="showProductDetail('${product.id}')">Lihat Detail</button>
+                            <a href="https://wa.me/${product.seller_phone}?text=Halo%20${encodeURIComponent(product.seller_name)},%20saya%20tertarik%20dengan%20produk%20${encodeURIComponent(product.name)}%20yang%20ada%20di%20Marketplace%20Desa%20Pawenang." target="_blank" class="btn-whatsapp">Hubungi</a>
+                        </div>
+                    </div>
+                `;
+            });
+            html += '</div>';
+
+            container.innerHTML = html;
+            paginationEl.style.display = state.filteredProducts.length > 8 ? 'block' : 'none';
+        }
+
+        function showProductDetail(productId) {
+            const product = state.products.find(p => p.id === productId);
+            if (!product) return;
+
+            const formattedPrice = new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(product.price);
+
+            document.getElementById('modalTitle').textContent = product.name;
+            document.getElementById('modalBodyContent').innerHTML = `
+                <div>
+                    <img src="${product.image_url}" alt="${product.name}" class="modal-img" onerror="this.src='assets/images/favicon.png';">
+                </div>
+                <div class="modal-details">
+                    <h4>${product.name}</h4>
+                    <div class="modal-price">${formattedPrice}</div>
+                    <div class="modal-info-item"><strong>Kategori:</strong> ${product.category}</div>
+                    <div class="modal-info-item"><strong>Penjual/UMKM:</strong> ${product.seller_name}</div>
+                    <div class="modal-info-item"><strong>Lokasi:</strong> 📍 ${product.location}</div>
+                    <div class="modal-desc">
+                        <strong>Deskripsi Produk:</strong><br>
+                        ${product.description}
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('modalFooterContent').innerHTML = `
+                <a href="https://wa.me/${product.seller_phone}?text=Halo%20${encodeURIComponent(product.seller_name)},%20saya%20tertarik%20dengan%20produk%20${encodeURIComponent(product.name)}%20di%20Marketplace%20Desa%20Pawenang." target="_blank" class="btn-whatsapp" style="padding: 0.65rem 1.5rem; text-decoration:none;">Hubungi Penjual (WhatsApp)</a>
+            `;
+
+            document.getElementById('productModal').classList.add('active');
+        }
+
+        function closeProductDetail() {
+            document.getElementById('productModal').classList.remove('active');
+        }
+
+        function outsideCloseModal(event) {
+            const modal = document.getElementById('productModal');
+            if (event.target === modal) {
+                closeProductDetail();
+            }
+        }
+
+        function loadMoreProducts() {
+            alert("Fitur paginasi lanjutan akan memuat data tambahan dari API backend.");
+        }
+    </script>
+</body>
+</html>
