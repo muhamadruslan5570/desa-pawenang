@@ -1,0 +1,16 @@
+{
+  "name": "pawenang-backend-netlify",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "netlify dev"
+  },
+  "dependencies": {
+    "@netlify/functions": "^4.2.5",
+    "firebase-admin": "^13.6.0"
+  },
+  "devDependencies": {
+    "netlify-cli": "^23.9.4"
+  }
+}
